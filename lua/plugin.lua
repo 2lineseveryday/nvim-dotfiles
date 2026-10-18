@@ -7,7 +7,12 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/jay-babu/mason-nvim-dap.nvim.git"},
+
     { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/mfussenegger/nvim-dap.git" },
+    { src = "https://github.com/nvim-neotest/nvim-nio.git"},
+    { src = "https://github.com/rcarriga/nvim-dap-ui.git"},
 })
 
 require("screenkey").setup({
@@ -92,7 +97,7 @@ MiniPick.setup({})
 MiniExtra.setup({})
 
 vim.keymap.set("n", "<leader>pf", function() MiniPick.builtin.files() end, { desc = "Mini File Picker" })
-vim.keymap.set("n", "<leader>/", function() MiniPick.builtin.grep({pattern = vim.fn.expand("<cword>")}) end,{})
+vim.keymap.set("n", "<leader>/", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end, {})
 vim.keymap.set("n", "<leader>vh", function() MiniPick.builtin.help() end, { desc = "Mini Help" })
 
 vim.keymap.set("n", "<leader>xx", function() MiniExtra.pickers.diagnostic() end, { desc = "Mini Picker Diagnostics" })
@@ -145,14 +150,17 @@ MiniDiff.setup({
 -- vim.keymap.set("n", "[h", function() MiniDiff.goto_hunk("prev") end, { desc = "Prev hunk" })
 -- vim.keymap.set("n", "]h", function() MiniDiff.goto_hunk("next") end, { desc = "Next hunk" })
 
--- gh : stage hunk 
--- gH : reset hunk 
+-- gh : stage hunk
+-- gH : reset hunk
 
-vim.keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<CR>", {desc = "Fugitive Full Page New Tab"})
-vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", {desc = "Git diff split"})
+vim.keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<CR>", { desc = "Fugitive Full Page New Tab" })
+vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split" })
 
 ---- nvim treesitter ----
 require("treesitter")
 
 ---- lsp ----
 require("lsp")
+
+---- dap ----
+require("daps")

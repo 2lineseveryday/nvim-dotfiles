@@ -15,6 +15,7 @@ vim.pack.add({
     { src = "https://github.com/rcarriga/nvim-dap-ui.git"},
     {src = "https://github.com/nvim-tree/nvim-web-devicons"},
     {src = "https://github.com/nvim-lualine/lualine.nvim"},
+    {src = "https://github.com/OXY2DEV/markview.nvim"},
 })
 
 require("screenkey").setup({
